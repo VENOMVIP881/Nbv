@@ -1,0 +1,25 @@
+{
+  "manifest_version": 3,
+  "name": "IP Privacy Guard",
+  "version": "1.0",
+  "description": "Prevent IP leaks, block WebRTC, randomize user-agent, and disable Cloudways tracking.",
+  "permissions": [
+    "webRequest",
+    "webRequestBlocking",
+    "storage",
+    "scripting",
+    "declarativeNetRequest",
+    "tabs"
+  ],
+  "host_permissions": ["<all_urls>"],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content.js"],
+      "run_at": "document_start"
+    }
+  ]
+}
